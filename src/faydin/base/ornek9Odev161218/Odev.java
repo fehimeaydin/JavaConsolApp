@@ -9,10 +9,10 @@ public class Odev {
 	private Scanner scan;
 	
 	public Odev() {
-		javaStringReverse();
-		//javaSubstringComparisons();
-		//javaSubarray();
-		//calculator();
+		//javaStringReverse();        // tamam
+		javaSubstringComparisons(); // ilk ve son deðeri döndürmek kaldý
+		//javaSubarray();             // 
+		//calculator();               // tamam
 		
 		
 	}
@@ -20,24 +20,17 @@ public class Odev {
 
 	private void javaStringReverse() {
 		scan = new Scanner(System.in);
+		int sayi = 0;
 		
 		System.out.println("Kelime giriniz");
 		String kelime = scan.next();
 		System.out.println("Girdiðiniz kelime: " + kelime);
 		
 		
-		
 		char[] word = kelime.toCharArray();// girilen kelime uzunluðunda bir char array oluþturuldu.
 		char[] wordTemp = kelime.toCharArray(); // girilen kelime uzunluðunda temp için bir array oluþturuldu.
 		
-		for(int i = 0; i< kelime.length(); i++) {
-			
-			
-			System.out.println("Girdiðiniz kelime: " + word);
-			
-		}
-		
-		
+
 		int count = word.length-1;
 		
 		for(int j=0; j< word.length; j++) {
@@ -46,6 +39,22 @@ public class Odev {
 			System.out.println(word[j] + " " +wordTemp[j]);
 		}
 		
+		for(int j=0; j< word.length; j++) {
+			if(wordTemp[j] == word[j]) {
+				sayi = 1;
+			}
+			else {
+				sayi = 0;
+			}
+			count--;
+		}
+		
+		if(sayi == 1) {
+			System.out.println("Palindrome");
+		}
+		else {
+			System.out.println("Palindrome deðil");
+		}
 		
 		
 	}
@@ -63,15 +72,26 @@ public class Odev {
 		sayi = scan.nextInt();
 		System.out.println("Girdiðiniz sayý: " + sayi);
 		
-		String[] word = new String[kelime.length()];
+		String[] word = new String[100]; // sabit tanýmladým
+
+		int count = word.length-1;
 		
-		for(int i = 0; i< kelime.length(); i = i + sayi) { // girilen sayý kadar arttýrma iþlemi yapýlýyor.
+		for(int i = 0; i< kelime.length(); i++) { // girilen sayý kadar arttýrma iþlemi yapýlýyor.
 			
 			word[i] =	kelime.substring(i,i+sayi);
 			System.out.println("word["+i+"]= " + word[i]);
 		}
 		
 		Arrays.sort(word);
+		
+		for (int i = 0; i < kelime.length(); i++) {
+			
+			System.out.println(word[i]);
+		}
+		
+		System.out.println("word[0]= " + word[0]);
+
+		System.out.println("word["+ count +"]= " + word[count]);
 		
 		
 	}
@@ -89,10 +109,8 @@ public class Odev {
 		int sonuc=0;
 		scan = new Scanner(System.in);
 	
-		
 
 		do {
-			
 			
 			do {
 			
@@ -157,9 +175,7 @@ public class Odev {
 			
 		} while (devam);
 			
-		
 		scan.close();
-		
 		
 	}
 	

@@ -1,0 +1,166 @@
+package faydin.base.ornek9Odev161218;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Odev {
+	
+	
+	private Scanner scan;
+	
+	public Odev() {
+		javaStringReverse();
+		//javaSubstringComparisons();
+		//javaSubarray();
+		//calculator();
+		
+		
+	}
+	
+
+	private void javaStringReverse() {
+		scan = new Scanner(System.in);
+		
+		System.out.println("Kelime giriniz");
+		String kelime = scan.next();
+		System.out.println("Girdiðiniz kelime: " + kelime);
+		
+		
+		
+		char[] word = kelime.toCharArray();// girilen kelime uzunluðunda bir char array oluþturuldu.
+		char[] wordTemp = kelime.toCharArray(); // girilen kelime uzunluðunda temp için bir array oluþturuldu.
+		
+		for(int i = 0; i< kelime.length(); i++) {
+			
+			
+			System.out.println("Girdiðiniz kelime: " + word);
+			
+		}
+		
+		
+		int count = word.length-1;
+		
+		for(int j=0; j< word.length; j++) {
+			wordTemp[j] = word[count];
+			count--;
+			System.out.println(word[j] + " " +wordTemp[j]);
+		}
+		
+		
+		
+	}
+
+	private void javaSubstringComparisons() {
+		int sayi;
+		scan = new Scanner(System.in);
+		
+		
+		System.out.println("Bir cümle giriniz");
+		String kelime = scan.next();
+		System.out.println("Girdiðiniz cümle: " + kelime);
+		
+		System.out.println("Kaç harften sonra bölünsün (sayý giriniz)");
+		sayi = scan.nextInt();
+		System.out.println("Girdiðiniz sayý: " + sayi);
+		
+		String[] word = new String[kelime.length()];
+		
+		for(int i = 0; i< kelime.length(); i = i + sayi) { // girilen sayý kadar arttýrma iþlemi yapýlýyor.
+			
+			word[i] =	kelime.substring(i,i+sayi);
+			System.out.println("word["+i+"]= " + word[i]);
+		}
+		
+		Arrays.sort(word);
+		
+		
+	}
+	
+	private void javaSubarray() {
+		
+		
+	}
+
+	private void calculator() {
+		
+		int sayi;
+		boolean durum = true;
+		boolean devam = true;
+		int sonuc=0;
+		scan = new Scanner(System.in);
+	
+		
+
+		do {
+			
+			
+			do {
+			
+				System.out.println("Sayý: " + sonuc);
+				
+				
+				System.out.println("Ýþlem seçiniz (+, -, *, /, =)");
+				String islem = scan.next();
+				System.out.println("Girdiðiniz islem: " + islem);
+				
+				
+			    if(islem.equals("=")) {
+			    	System.out.println("sonuc = " + sonuc);
+					durum = false;
+			    }
+			    else {
+			    	System.out.println("Bir sayý giriniz...");
+					sayi = scan.nextInt();
+					System.out.println("Girdiðiniz sayý: " + sayi);
+					
+				
+					switch (islem) {
+					case "+":
+						sonuc += sayi;
+						System.out.println("sonuc = " + sonuc);
+						break;
+					case "-":
+						sonuc -= sayi;
+						System.out.println("sonuc = " + sonuc);
+						break;
+					case "*":
+						sonuc *= sayi;
+						System.out.println("sonuc = " + sonuc);
+						break;
+					case "/":
+						sonuc /= sayi;
+						System.out.println("sonuc = " + sonuc);
+						break;
+					default:
+						System.out.println("Hatalý iþlem seçimi yaptýnýz.");
+						break;
+						
+					}
+			    }
+			
+			}
+		while(durum);
+			
+		System.out.println("Devam etmek istiyor musunuz? ( E / H)");
+		String islem = scan.next();
+		System.out.println("Girdiðiniz islem: " + islem);
+		
+			if(islem.equals("E")) {
+				durum = true;
+				devam = true;
+			}
+			else {
+				System.out.println("Ýþlem tamamlandý. Sonuc = " + sonuc);
+				devam = false;
+				
+			}	
+			
+		} while (devam);
+			
+		
+		scan.close();
+		
+		
+	}
+	
+}

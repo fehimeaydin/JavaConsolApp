@@ -10,9 +10,9 @@ public class Odev {
 	
 	public Odev() {
 		//javaStringReverse();        // tamam
-		//javaSubstringComparisons(); // ilk ve son deðeri döndürmek kaldý
+		javaSubstringComparisons(); // ilk ve son deðeri döndürmek kaldý
 		//javaSubarray();             // 
-		calculator();               // tamam
+		//calculator();               // tamam
 		
 		
 	}
@@ -39,7 +39,7 @@ public class Odev {
 			System.out.println(word[j] + " " +wordTemp[j]);
 		}
 		
-		for(int j=0; j< word.length; j++) {
+		for(int j=0; j< word.length/2; j++) {
 			if(wordTemp[j] == word[j]) {
 				sayi = 1;
 			}
@@ -78,7 +78,7 @@ public class Odev {
 		
 		for(int i = 0; i< kelime.length(); i++) { // girilen sayý kadar arttýrma iþlemi yapýlýyor.
 			
-			word[i] =	kelime.substring(i,i+sayi);
+			word[i] =	kelime.substring(i,i+sayi); // arrayin uzunluðundan fazla ilerletiyorum, i+sayi ile orayý düzelt
 			System.out.println("word["+i+"]= " + word[i]);
 		}
 		
@@ -99,10 +99,10 @@ public class Odev {
 	private void javaSubarray() {
 		
 		Scanner scan = new Scanner(System.in);
-        int size     = scan.nextInt();
-        int[] array = new int[size];        
+        int size     = scan.nextInt(); //ekrandan arrayýn uzunluðu istedi
+        int[] array = new int[size];   
         for (int i = 0; i < size; i++) {
-            array[i] = scan.nextInt();
+            array[i] = scan.nextInt(); // ekrandan alýnan deðerleri arrayýn öðelerine ata.
         }
         
         

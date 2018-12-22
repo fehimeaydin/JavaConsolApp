@@ -11,8 +11,8 @@ public class Odev {
 	public Odev() {
 		//javaStringReverse();        // tamam
 		//javaSubstringComparisons(); // ilk ve son deðeri döndürmek kaldý
-		javaSubarray();             // 
-		//calculator();               // tamam
+		//javaSubarray();             // 
+		calculator();               // tamam
 		
 		
 	}
